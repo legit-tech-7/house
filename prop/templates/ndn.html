@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Find Your Dream Property</h1>
+            <p>Discover exclusive real estate opportunities with Prestige Realty. Luxury homes, expert agents, and unparalleled service.</p>
+            <a href="#search" class="btn btn-primary">
+                <i class="fas fa-search"></i> Search Properties
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Search Section -->
+<section id="search" class="search-section">
+    <div class="container">
+        <div class="search-container">
+            <h2>Find Your Perfect Home</h2>
+            <form id="propertySearchForm" class="search-form">
+                <div class="form-group">
+                    <label for="city">Location</label>
+                    <input type="text" id="city" name="city" placeholder="Enter city or ZIP" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="type">Property Type</label>
+                    <select id="type" name="type" class="form-control">
+                        <option value="">Any Type</option>
+                        <option value="house">House</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="condo">Condominium</option>
+                        <option value="villa">Villa</option>
+                        <option value="commercial">Commercial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bedrooms">Bedrooms</label>
+                    <select id="bedrooms" name="bedrooms" class="form-control">
+                        <option value="">Any</option>
+                        <option value="1">1+</option>
+                        <option value="2">2+</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                        <option value="5">5+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price_range">Price Range</label>
+                    <select id="price_range" name="price_range" class="form-control">
+                        <option value="">Any Price</option>
+                        <option value="100000-300000">$100,000 - $300,000</option>
+                        <option value="300001-500000">$300,001 - $500,000</option>
+                        <option value="500001-750000">$500,001 - $750,000</option>
+                        <option value="750001-1000000">$750,001 - $1,000,000</option>
+                        <option value="1000001-999999999">$1,000,000+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-search"></i> Search Properties
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Properties -->
+<section class="featured-properties">
+    <div class="container">
+        <div class="section-title">
+            <h2>Featured Properties</h2>
+            <p>Discover our handpicked selection of premium properties</p>
+        </div>
+        
+        <div class="properties-grid">
+            {% for property in featured_properties %}
+            <div class="property-card">
+                <div class="property-image">
+                    <img src="{{ property.main_image.url }}" alt="{{ property.title }}">
+                    <div class="property-badge">{{ property.get_property_type_display }}</div>
+                    {% if property.featured %}
+                    <div class="featured-badge">
+                        <i class="fas fa-star"></i> Featured
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="property-content">
+                    <div class="property-price">${{ property.price|floatformat:0 }}</div>
+                    <h3 class="property-title">{{ property.title }}</h3>
+                    <div class="property-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        {{ property.city }}, {{ property.state }}
+                    </div>
+                    <p class="property-description">{{ property.description|truncatewords:20 }}</p>
+                </div>
+                <div class="property-features">
+                    <div class="feature">
+                        <i class="fas fa-bed"></i>
+                        <span>{{ property.bedrooms }} Beds</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bath"></i>
+                        <span>{{ property.bathrooms }} Baths</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-ruler-combined"></i>
+                        <span>{{ property.sqft }} Sq Ft</span>
+                    </div>
+                </div>
+                <a href="{% url 'property_detail' property.id %}" class="btn btn-secondary" style="border-radius: 0 0 8px 8px; width: 100%;">
+                    View Details
+                </a>
+            </div>
+            {% empty %}
+            <p>No featured properties available at the moment.</p>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center" style="margin-top: 40px;">
+            <a href="{% url 'listings' %}" class="btn btn-primary">
+                View All Properties <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Agents Section -->
+<section class="agents-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Meet Our Agents</h2>
+            <p>Our experienced agents are ready to help you find your dream home</p>
+        </div>
+        
+        <div class="agents-grid">
+            {% for agent in agents %}
+            <div class="agent-card">
+                <div class="agent-image">
+                    <img src="{{ agent.profile_picture.url }}" alt="{{ agent.name }}">
+                </div>
+                <div class="agent-info">
+                    <h3 class="agent-name">{{ agent.name }}</h3>
+                    <p class="agent-title">{{ agent.title }}</p>
+                    <p class="agent-bio">{{ agent.bio|truncatewords:30 }}</p>
+                    <div class="agent-contact">
+                        <p><i class="fas fa-phone"></i> {{ agent.phone }}</p>
+                        <p><i class="fas fa-envelope"></i> {{ agent.email }}</p>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="stat">
+                            <strong>{{ agent.years_experience }}+</strong>
+                            <span>Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <strong>{{ agent.properties_sold }}+</strong>
+                            <span>Properties Sold</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No agents available at the moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Find Your Dream Home?</h2>
+            <p>Contact us today and let our experts guide you through the process</p>
+            <div class="cta-buttons">
+                <a href="{% url 'contact' %}" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+                <a href="tel:+1234567890" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .cta-section {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+        color: var(--white);
+        padding: 80px 0;
+        text-align: center;
+        margin: 80px 0;
+    }
+    
+    .cta-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-family: var(--font-accent);
+    }
+    
+    .cta-content p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .agent-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .stat {
+        text-align: center;
+    }
+    
+    .stat strong {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--secondary-gold);
+    }
+    
+    .stat span {
+        font-size: 0.9rem;
+        color: var(--light-text);
+    }
+</style>
+{% endblock %}

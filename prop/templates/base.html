@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Prestige Realty | Luxury Properties{% endblock %}</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="{% url 'index' %}">
+                        <h1><span class="logo-primary">Prestige</span><span class="logo-secondary">Realty</span></h1>
+                    </a>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+                    <li><a href="{% url 'listings' %}" class="nav-link">Properties</a></li>
+                    <li><a href="{% url 'agents' %}" class="nav-link">Agents</a></li>
+                    <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="/admin/" class="nav-link">Admin</a></li>
+                    {% endif %}
+                </ul>
+                
+                <div class="nav-actions">
+                    <button class="btn btn-secondary" onclick="location.href='tel:+1234567890'">
+                        <i class="fas fa-phone"></i> (123) 456-7890
+                    </button>
+                </div>
+                
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <h2><span class="logo-primary">Prestige</span><span class="logo-secondary">Realty</span></h2>
+            </div>
+            <div class="close-menu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'listings' %}">Properties</a></li>
+            <li><a href="{% url 'agents' %}">Agents</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <h3><span class="logo-primary">Prestige</span><span class="logo-secondary">Realty</span></h3>
+                    </div>
+                    <p class="footer-description">
+                        Your trusted partner in finding the perfect home. We specialize in luxury properties and exceptional service.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'listings' %}">All Properties</a></li>
+                        <li><a href="{% url 'agents' %}">Our Agents</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Property Types</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Houses</a></li>
+                        <li><a href="#">Apartments</a></li>
+                        <li><a href="#">Condominiums</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Luxury Villas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue, Prestige City, PC 10001</p>
+                        <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                        <p><i class="fas fa-envelope"></i> info@prestigerealty.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Prestige Realty Group. All rights reserved.</p>
+                <p>Website designed with <i class="fas fa-heart"></i> for premium real estate services.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
