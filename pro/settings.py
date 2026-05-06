@@ -26,7 +26,16 @@ SECRET_KEY = 'django-insecure-#tp!dkr52do1=7i)4z!754#f*l5gb1qam2974fv%l&8o%%+&b$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+ALLOWED_HOSTS = [
+    "prestigehubrealty.com",
+    "www.prestigehubrealty.com",
+    "16.171.21.218",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://prestigehubrealty.com",
+    "https://www.prestigehubrealty.com",
+]
 
 
 # Application definition
