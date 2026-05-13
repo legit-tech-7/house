@@ -27,9 +27,9 @@ SECRET_KEY = 'django-insecure-#tp!dkr52do1=7i)4z!754#f*l5gb1qam2974fv%l&8o%%+&b$
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    # "prestigehubrealty.com",
-    # "www.prestigehubrealty.com",
-    # "16.171.21.218",
+    "prestigehubrealty.com",
+    "www.prestigehubrealty.com",
+    "16.171.21.218",
     
 ]
 
