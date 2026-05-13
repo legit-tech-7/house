@@ -100,156 +100,135 @@
         <div class="row">
           <div class="col-lg-7">
 
-            <!-- Property Hero Section -->
-            <div class="property-hero mb-5" data-aos="fade-up" data-aos-delay="200">
-              <div class="hero-image-container">
-                <div class="property-gallery-slider swiper init-swiper">
-                  <script type="application/json" class="swiper-config">
-                    {
-                      "loop": true,
-                      "speed": 600,
-                      "autoplay": {
-                        "delay": 5000
-                      },
-                      "navigation": {
-                        "nextEl": ".swiper-button-next",
-                        "prevEl": ".swiper-button-prev"
-                      },
-                      "thumbs": {
-                        "swiper": ".property-thumbnails-slider"
-                      }
-                    }
-                  </script>
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <img src=" {{ property.main_image.url }}" class="img-fluid hero-image" alt="Property Main Image">
-                      <div class="hero-overlay">
-                        <div class="property-badge">
-                          <span class="status-badge for-rent">For Rent</span>
-                          <span class="featured-badge">Featured</span>
-                        </div>
-                        <button class="virtual-tour-btn">
-                          <i class="bi bi-play-circle"></i>
-                          Virtual Tour
-                        </button>
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-interior-7.webp' %}" class="img-fluid hero-image" alt="Interior View">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-exterior-9.webp' %}" class="img-fluid hero-image" alt="Exterior View">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/features-5.webp'%}" class="img-fluid hero-image" alt="Features">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-interior-8.webp' %}" class="img-fluid hero-image" alt="More Photos">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-exterior-3.webp ' %}" class="img-fluid hero-image" alt="Exterior Detail">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-interior-4.webp ' %}" class="img-fluid hero-image" alt="Living Area">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/features-2.webp ' %}" class="img-fluid hero-image" alt="Kitchen">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-interior-5.webp' %}" class="img-fluid hero-image" alt="Bedroom">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-exterior-1.webp ' %}" class="img-fluid hero-image" alt="Building View">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/features-3.webp ' %}" class="img-fluid hero-image" alt="Bathroom">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-interior-2.webp ' %}" class="img-fluid hero-image" alt="Dining Area">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-exterior-8.webp ' %}" class="img-fluid hero-image" alt="Balcony View">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/features-1.webp ' %}" class="img-fluid hero-image" alt="Amenities">
-                    </div>
-                  </div>
-                  <div class="swiper-button-next"></div>
-                  <div class="swiper-button-prev"></div>
-                </div>
-              </div>
+          <!-- Property Hero Section -->
+<div class="property-hero mb-5" data-aos="fade-up" data-aos-delay="200">
 
-              <div class="thumbnail-gallery mt-3">
-                <div class="property-thumbnails-slider swiper init-swiper">
-                  <script type="application/json" class="swiper-config">
-                    {
-                      "loop": true,
-                      "spaceBetween": 10,
-                      "slidesPerView": 4,
-                      "freeMode": true,
-                      "watchSlidesProgress": true,
-                      "breakpoints": {
-                        "576": {
-                          "slidesPerView": 5
-                        },
-                        "768": {
-                          "slidesPerView": 6
-                        }
-                      }
-                    }
-                  </script>
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-exterior-7.webp ' %}" class="img-fluid thumbnail-img" alt="Property Main Image">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-interior-7.webp ' %}" class="img-fluid thumbnail-img" alt="Interior View">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-exterior-9.webp ' %}" class="img-fluid thumbnail-img" alt="Exterior View">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/features-5.webp ' %}" class="img-fluid thumbnail-img" alt="Features">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-interior-8.webp ' %}" class="img-fluid thumbnail-img" alt="More Photos">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-exterior-3.webp ' %}" class="img-fluid thumbnail-img" alt="Exterior Detail">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-interior-4.webp ' %}" class="img-fluid thumbnail-img" alt="Living Area">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/features-2.webp ' %}" class="img-fluid thumbnail-img" alt="Kitchen">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-interior-5.webp ' %}" class="img-fluid thumbnail-img" alt="Bedroom">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-exterior-1.webp ' %}" class="img-fluid thumbnail-img" alt="Building View">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/features-3.webp ' %}" class="img-fluid thumbnail-img" alt="Bathroom">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-interior-2.webp ' %}" class="img-fluid thumbnail-img" alt="Dining Area">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/property-exterior-8.webp ' %}" class="img-fluid thumbnail-img" alt="Balcony View">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{% static 'assets/img/real-estate/features-1.webp ' %}" class="img-fluid thumbnail-img" alt="Amenities">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Property Hero -->
+  <div class="hero-image-container">
+    <div class="property-gallery-slider swiper init-swiper">
+
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "navigation": {
+            "nextEl": ".swiper-button-next",
+            "prevEl": ".swiper-button-prev"
+          },
+          "thumbs": {
+            "swiper": ".property-thumbnails-slider"
+          }
+        }
+      </script>
+
+      <div class="swiper-wrapper">
+
+        <!-- Main Property Image -->
+        <div class="swiper-slide">
+          <img src="{{ property.main_image.url }}"
+               class="img-fluid hero-image"
+               alt="Property Main Image">
+
+          <div class="hero-overlay">
+            <div class="property-badge">
+
+              <span class="status-badge for-rent">
+                For Rent
+              </span>
+
+              {% if property.featured %}
+              <span class="featured-badge">
+                Featured
+              </span>
+              {% endif %}
+
+            </div>
+
+            <button class="virtual-tour-btn">
+              <i class="bi bi-play-circle"></i>
+              Virtual Tour
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Additional Property Images -->
+        {% for image in property.images.all %}
+        <div class="swiper-slide">
+
+          <img src="{{ image.image.url }}"
+               class="img-fluid hero-image"
+               alt="{{ image.caption|default:'Property Image' }}">
+
+        </div>
+        {% endfor %}
+
+      </div>
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+    </div>
+  </div>
+
+  <!-- Thumbnail Gallery -->
+  <div class="thumbnail-gallery mt-3">
+
+    <div class="property-thumbnails-slider swiper init-swiper">
+
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "spaceBetween": 10,
+          "slidesPerView": 4,
+          "freeMode": true,
+          "watchSlidesProgress": true,
+          "breakpoints": {
+            "576": {
+              "slidesPerView": 5
+            },
+            "768": {
+              "slidesPerView": 6
+            }
+          }
+        }
+      </script>
+
+      <div class="swiper-wrapper">
+
+        <!-- Main Thumbnail -->
+        <div class="swiper-slide">
+          <img src="{{ property.main_image.url }}"
+               class="img-fluid thumbnail-img"
+               alt="Main Thumbnail">
+        </div>
+
+        <!-- Extra Thumbnails -->
+        {% for image in property.images.all %}
+        <div class="swiper-slide">
+
+          <img src="{{ image.image.url }}"
+               class="img-fluid thumbnail-img"
+               alt="{{ image.caption|default:'Thumbnail' }}">
+
+        </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<!-- End Property Hero -->
 
             <!-- Property Information -->
             <div class="property-info mb-5" data-aos="fade-up" data-aos-delay="300">
               <div class="property-header">
-                <h1 class="property-title">Executive Penthouse with City Views</h1>
+                <h1 class="property-title">{{ property.title }}</h1>
                 <div class="property-meta">
                   <span class="address"><i class="bi bi-geo-alt"></i>             {{ property.address }}, {{ property.city }}, {{ property.state }} {{ property.zip_code }}
 </span>
@@ -308,8 +287,8 @@
                       <i class="bi bi-building"></i>
                     </div>
                     <div class="stat-content">
-                      <span class="stat-number">15th</span>
-                      <span class="stat-label">Floor</span>
+                      <!-- <span class="stat-number">15th</span>
+                      <span class="stat-label">Floor</span> -->
                     </div>
                   </div>
                 </div>
@@ -352,10 +331,10 @@
             <div class="floor-plan-section mb-5" data-aos="fade-up" data-aos-delay="500">
               <h3>Floor Plan</h3>
               <div class="floor-plan-card">
-                <img src="{% static 'assets/img/real-estate/property-interior-9.webp' %}" class="img-fluid" alt="Floor Plan">
+                <img src="{{ property.main_image.url }}" class="img-fluid" alt="Floor Plan">
                 <div class="plan-details">
-                  <h5>3 Bedroom Penthouse Layout</h5>
-                  <p>Open concept living and dining area with private balcony access. Master suite features ensuite bathroom and city views.</p>
+                  <h5>{{ property.title}}</h5>
+                  {{ property.description }}
                 </div>
               </div>
             </div><!-- End Floor Plan -->
@@ -526,7 +505,7 @@
         </div>
 
         <!-- Location Section -->
-        <div class="location-section mt-5" data-aos="fade-up" data-aos-delay="700">
+        <!-- <div class="location-section mt-5" data-aos="fade-up" data-aos-delay="700">
           <h3>Location &amp; Neighborhood</h3>
           <div class="row">
             <div class="col-lg-8">
@@ -568,7 +547,7 @@
               </div>
             </div>
           </div>
-        </div><!-- End Location Section -->
+        </div>End Location Section -->
 
       </div>
 
